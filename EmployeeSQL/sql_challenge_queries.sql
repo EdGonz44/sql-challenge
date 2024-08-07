@@ -1,11 +1,13 @@
 --Creating tables for import
+
+--Create table holding titles csv
 CREATE TABLE titles (
 	title_id VARCHAR(5) NOT NULL,
 	title VARCHAR (30) NOT NULL,
 	PRIMARY KEY (title_id) 
 );
 
-
+--Create table holding employees csv
 CREATE TABLE employees (
 	emp_no INT NOT NULL,
 	emp_title_id VARCHAR (5) NOT NULL,
@@ -16,15 +18,16 @@ CREATE TABLE employees (
 	hire_date DATE NOT NULL,
 	PRIMARY KEY (emp_no)
 	)
-SELECT * from employees;
 
 
+--Create table for departments csv
 CREATE TABLE departments (
 	dept_no VARCHAR(4) NOT NULL,
 	dept_name VARCHAR (20) NOT NULL,
 	PRIMARY KEY (dept_no)
 )
-	
+
+--Create table for salaries csv
 CREATE TABLE salaries (
 	emp_no INT NOT NULL,
 	salary INT NOT NULL,
@@ -32,7 +35,7 @@ CREATE TABLE salaries (
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 )
 
-	
+--Create table for dep_emp csv
 CREATE TABLE dept_emp (
 	emp_no INT NOT NULL,
 	dept_no VARCHAR(4) NOT NULL,
@@ -41,6 +44,7 @@ CREATE TABLE dept_emp (
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 )
 
+--Create table for dept_manager csv	
 CREATE TABLE dept_manager (
 	dept_no VARCHAR(4) NOT NULL,
 	emp_no INT NOT NULL,
